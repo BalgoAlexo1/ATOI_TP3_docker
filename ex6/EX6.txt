@@ -1,0 +1,27 @@
+1.
+a.  Pour lancer un serveur Redis en exposant le port 6379 du conteneur sur le port 6379 local on fait : docker run -d -p 6379:6379 redis
+b.  Redis est un système de stockage de données clé-valeur open source et en mémoire. 
+c.
+Script Python
+import redis
+
+# Connexion à Redis
+r = redis.Redis(host='localhost', port=6379, db=0)
+
+# Ouvrir le fichier Guerre et Paix
+with open('./ex6/gp.txt', 'r', encoding='utf-8') as f:
+    # Lire le contenu du fichier ligne par ligne
+    for line in f:
+        # Supprimer les caractères de ponctuation et convertir en minuscules
+        words = line.lower().split()
+        for word in words:
+            # Supprimer les caractères de ponctuation
+            word = word.strip(".,!?;:\"")
+            # Incrémenter le compteur Redis pour ce mot
+            r.hincrby('word_counts', word, 1)
+
+# Afficher le compte final
+word_counts = r.hgetall('word_counts')
+for word, count in word_counts.items():
+    print(f"{word.decode('utf-8')}: {count.decode('utf-8')}")
+

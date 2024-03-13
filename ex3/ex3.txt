@@ -1,0 +1,8 @@
+1.La commande qemu-img create est utilisée pour créer une nouvelle image disque pour une machine virtuelle
+
+2.Cela ne m'affiche aucune erreur.
+3.On doit rajouter les paremetres  suivants : -netdev user,id=eth0,hostfwd=tcp::10022-:22 -device e1000,netdev=eth0
+
+4. On doit rajouter comme parametre -cdrom (chemin vers le cd)
+
+5.Oui

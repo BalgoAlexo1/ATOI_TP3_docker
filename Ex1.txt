@@ -1,0 +1,45 @@
+1.
+a) Une machine virtuelle (VM) est un logiciel de virtualisation qui permet de créer un environnement virtuel complet, y compris un système d'exploitation (comme Linux, Windows, etc.) et des ressources matérielles émulées (processeur, mémoire, stockage, etc.). 
+   Les VM fonctionnent sur un hyperviseur qui gère l'allocation des ressources physiques aux différentes machines virtuelles.
+
+b) Un conteneur est une forme de virtualisation au niveau du système d'exploitation, où les applications sont isolées dans des environnements légers et portables. 
+   Les conteneurs partagent le même noyau du système d'exploitation que l'hôte, mais ont leur propre espace de fichiers, processus et ressources. Ils utilisent généralement des technologies telles que Docker pour la gestion et l'orchestration.
+
+c) Schéma comparatif :                         
+                         Machine Virtuelle                   Conteneur
+-------------------------------------------------------------------------
+Noyau Linux              Noyau Linux dédié                  Noyau Linux partagé
+Application              Application                        Application
+                        (et système d'exploitation)         (et système d'exploitation)
+Limites                  Isolation complète des              Isolation légère,
+                         ressources, plus lourd             moins isolé, plus léger
+                         sur les ressources
+
+d) Avantages/inconvénients et cas d'utilisation :
+
+i) Sécurité : Les machines virtuelles offrent une isolation plus forte entre les applications et les systèmes, ce qui les rend généralement plus sécurisées que les conteneurs.
+   Cependant, les conteneurs sont plus légers et plus faciles à gérer, bien que moins isolés.
+
+ii) Performance : Les conteneurs sont généralement plus performants que les machines virtuelles car ils partagent le même noyau et évitent ainsi la surcharge liée à l'émulation matérielle. 
+    Les machines virtuelles, en revanche, peuvent être plus lourdes en termes de ressources.
+
+iii) Raisons d'utilisation : On utilise souvent des machines virtuelles lorsque l'isolation des ressources est primordiale, par exemple dans des environnements de production où la sécurité est critique. 
+     Les conteneurs sont privilégiés pour le développement et le déploiement agiles d'applications, ainsi que pour les environnements de microservices.
+
+e) Scénarios justifiant l'utilisation de VM et/ou conteneurs :
+
+Utilisation de VM : Environnements de production critiques nécessitant une isolation complète, migration d'applications existantes sans modification majeure, tests de compatibilité avec différents systèmes d'exploitation.
+Utilisation de conteneurs : Déploiement agile d'applications, architectures de microservices, développement et test de logiciels.
+
+Exercice de sens critique :
+a) Faux. Les conteneurs sont généralement plus légers que les machines virtuelles car ils partagent le même noyau et évitent la surcharge liée à l'émulation matérielle.
+
+b) Faux. Les conteneurs partagent le même noyau du système d'exploitation que l'hôte et ne peuvent pas changer de noyau de manière autonome.
+
+c) Vrai. Les conteneurs peuvent exécuter différentes distributions Linux en utilisant le même noyau, ce qui permet une grande flexibilité.
+
+d) Faux. Vous pouvez lancer plusieurs VM sur un même noeud physique, selon les ressources disponibles.
+
+e) Faux. Pour développer des modules noyaux, vous aurez besoin d'un accès direct au noyau, ce qui est difficile à obtenir dans un conteneur. Les environnements de développement de type VM seraient plus appropriés.
+
+f) Faux. Les machines virtuelles peuvent avoir des architectures différentes de l'hôte tant que l'hyperviseur les prend en charge. Par exemple, vous pouvez exécuter une VM avec une architecture x86 sur un hôte avec une architecture ARM.

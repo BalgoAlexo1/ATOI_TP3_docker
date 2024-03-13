@@ -1,0 +1,20 @@
+
+1. root 
+2.bin boot dev etc home lib lib64 media mnt opt root run sbin srv sys tmp usr var
+3.a) -ti : Ces options permettent de lancer le conteneur en mode interactif (-i) et de créer un pseudo-terminal (-t). 
+            Cela est souvent utilisé pour exécuter des applications interactives dans des conteneurs Docker.
+     --rm : Cette option indique à Docker de supprimer le conteneur une fois qu'il a terminé son exécution.
+
+b) rancher/cowsay est le nom de l'image Docker utilisée pour exécuter le conteneur. Sur le hub Docker (https://hub.docker.com/r/rancher/cowsay), vous pouvez trouver plus d'informations sur cette image, y compris les tags disponibles et les instructions pour l'utiliser.
+
+c) La commande cowsay est une command qui affiche un message sous forme de bulle de texte dans un modèle ASCII d'une vache. 
+   Dans cet exemple, le message "Salut Linux" est passé à la commande cowsay, qui affiche alors la vache disant "Salut Linux".
+
+d) Le binaire cowsay est généralement situé dans le répertoire /usr/bin sur les systèmes Linux. Il s'agit d'un exécutable qui est utilisé pour afficher des messages avec une vache ASCII. Dans un conteneur Docker, le binaire cowsay peut être situé dans le même répertoire ou dans un autre répertoire spécifié dans la configuration de l'image.
+
+e) Téléchargement de l'image rancher/cowsay depuis le hub Docker s'il n'est pas déjà présent sur le système.
+Création d'un nouveau conteneur à partir de l'image rancher/cowsay.
+Lancement du conteneur en mode interactif avec un pseudo-terminal.
+Exécution de la commande cowsay "Hello Docker" dans le conteneur.
+f) La commande est plus rapide lors du second lancement car l'image Docker rancher/cowsay est déjà téléchargée et présente en cache sur le système après le premier lancement. Lors du second lancement,
+   Docker utilise l'image en cache pour créer et démarrer le conteneur, ce qui réduit le temps nécessaire pour télécharger l'image et créer le conteneur.

@@ -1,0 +1,24 @@
+
+1.Il ne trouve pas le disque dur. 
+
+2.
+a.
+
+-hda atoi.qcow2: Spécifie le chemin vers le disque dur virtuel (image disque) à utiliser comme disque dur principal de la machine virtuelle. Dans cet exemple, le fichier atoi.qcow2 est utilisé.
+
+-m 1024: Alloue 1024 Mo (ou 1 Go) de mémoire RAM à la machine virtuelle.
+
+-netdev user,id=eth0,hostfwd=tcp::10022-:22: Configure le réseau pour la machine virtuelle. Un adaptateur réseau (eth0) est créé et connecté à un réseau virtuel de type utilisateur. L'option hostfwd=tcp::10022-:22 spécifie que le port 22 de la machine virtuelle est exposé sur le port 10022 de l'hôte, permettant ainsi l'accès SSH à la machine virtuelle depuis l'hôte.
+
+-device e1000,netdev=eth0: Ajoute un périphérique réseau de type e1000 à la machine virtuelle, en le connectant à l'adaptateur réseau eth0 que nous avons configuré précédemment.
+
+b) On doit rentrer  dans les arguments de la commande "qemu-system-x86_64 -hda atoi.qcow2 -m 1024 -netdev user,id=eth0,hostfwd=tcp::10022-:22 -device e1000,netdev=eth0"
+du port pour rediriger le port 22 de la machine virtuelle vers un port de l'hôte (par exemple, le port 10022).
+
+
+3.
+
+4. Le serveur SSH tourne dans la machine virtuelle sur le port 22,
+   mais il est exposé sur le port 10022 de votre machine hôte via la redirection de port configurée dans la commande qemu-system-x86_64.
+
+5. On peut acceder à la vm en faisant ssh atoi@localhost -p 10022.
