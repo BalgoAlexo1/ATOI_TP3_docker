@@ -15,4 +15,6 @@ f. Le contenu de http://localhost:8080 changera si le fichier index.html est ser
    Le contenu "PAWNED" sera affiché à la place de la page par défaut de Nginx lorsque vous accédez à http://localhost:8080.
 
 
-2. On fait cet commande : docker run -ti -p8080:80 -v /Téléchargement/ATOI_P3_DOCKER/ex5/html:/usr/share/nginx/html nginx
+2. a. On fait cet commande : docker run -ti -p8080:80 -v /home/alexandre/Documents/TOI/ATOI_TP3_docker/ex5/html:/usr/share/nginx/html nginx
+   regardez image.
+   b. Le mdp est geek123
